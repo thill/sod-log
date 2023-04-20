@@ -1,15 +1,15 @@
 # sod-log
 
-[`sod::Service`] logging implementations via [`log`](https://crates.io/crates/log).
+[`sod::Service`](http://github.com/thill/sod) logging implementations via [`log`](https://crates.io/crates/log).
 
 ## Service Impls
 
-- [`LogDebugService`] logs [`Debug`] input at a configured log level to [`log::log`], returning the input as output.
-- [`LogDisplayService`] logs [`Display`] input at a configured log level to [`log::log`], returning the input as output.
+- `LogDebugService` logs `Debug` input at a configured log level to `log::log`, returning the input as output.
+- `LogDisplayService` logs `Display` input at a configured log level to `log::log`, returning the input as output.
 
 ## Use Case
 
-These [`Service`] impls are most useful for logging an event as it passes through a service chain.
+These `Service` impls are most useful for logging an event as it passes through a service chain.
 
 ## Example
 
