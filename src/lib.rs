@@ -41,31 +41,31 @@ impl<'a> LogDebugService<'a> {
         }
     }
     /// Log as [`Level::Debug`]
-    ///  # Arguments
+    /// # Arguments
     /// * `prefix` - A prefix to prepend to the beginning of the log statment
     pub fn debug<S: Into<Cow<'a, str>>>(prefix: S) -> Self {
         Self::new(Level::Debug, prefix)
     }
     /// Log as [`Level::Error`]
-    ///  # Arguments
+    /// # Arguments
     /// * `prefix` - A prefix to prepend to the beginning of the log statment
     pub fn error<S: Into<Cow<'a, str>>>(prefix: S) -> Self {
         Self::new(Level::Error, prefix)
     }
     /// Log as [`Level::Info`]
-    ///  # Arguments
+    /// # Arguments
     /// * `prefix` - A prefix to prepend to the beginning of the log statment
     pub fn info<S: Into<Cow<'a, str>>>(prefix: S) -> Self {
         Self::new(Level::Info, prefix)
     }
     /// Log as [`Level::Trace`]
-    ///  # Arguments
+    /// # Arguments
     /// * `prefix` - A prefix to prepend to the beginning of the log statment
     pub fn trace<S: Into<Cow<'a, str>>>(prefix: S) -> Self {
         Self::new(Level::Trace, prefix)
     }
     /// Log as [`Level::Warn`]
-    ///  # Arguments
+    /// # Arguments
     /// * `prefix` - A prefix to prepend to the beginning of the log statment
     pub fn warn<S: Into<Cow<'a, str>>>(prefix: S) -> Self {
         Self::new(Level::Warn, prefix)
@@ -99,31 +99,31 @@ impl<'a> LogOptionalDebugService<'a> {
         }
     }
     /// Log as [`Level::Debug`]
-    ///  # Arguments
+    /// # Arguments
     /// * `prefix` - A prefix to prepend to the beginning of the log statment
     pub fn debug<S: Into<Cow<'a, str>>>(prefix: S) -> Self {
         Self::new(Level::Debug, prefix)
     }
     /// Log as [`Level::Error`]
-    ///  # Arguments
+    /// # Arguments
     /// * `prefix` - A prefix to prepend to the beginning of the log statment
     pub fn error<S: Into<Cow<'a, str>>>(prefix: S) -> Self {
         Self::new(Level::Error, prefix)
     }
     /// Log as [`Level::Info`]
-    ///  # Arguments
+    /// # Arguments
     /// * `prefix` - A prefix to prepend to the beginning of the log statment
     pub fn info<S: Into<Cow<'a, str>>>(prefix: S) -> Self {
         Self::new(Level::Info, prefix)
     }
     /// Log as [`Level::Trace`]
-    ///  # Arguments
+    /// # Arguments
     /// * `prefix` - A prefix to prepend to the beginning of the log statment
     pub fn trace<S: Into<Cow<'a, str>>>(prefix: S) -> Self {
         Self::new(Level::Trace, prefix)
     }
     /// Log as [`Level::Warn`]
-    ///  # Arguments
+    /// # Arguments
     /// * `prefix` - A prefix to prepend to the beginning of the log statment
     pub fn warn<S: Into<Cow<'a, str>>>(prefix: S) -> Self {
         Self::new(Level::Warn, prefix)
@@ -159,31 +159,31 @@ impl<'a> LogDisplayService<'a> {
         }
     }
     /// Log as [`Level::Debug`]
-    ///  # Arguments
+    /// # Arguments
     /// * `prefix` - A prefix to prepend to the beginning of the log statment
     pub fn debug<S: Into<Cow<'a, str>>>(prefix: S) -> Self {
         Self::new(Level::Debug, prefix)
     }
     /// Log as [`Level::Error`]
-    ///  # Arguments
+    /// # Arguments
     /// * `prefix` - A prefix to prepend to the beginning of the log statment
     pub fn error<S: Into<Cow<'a, str>>>(prefix: S) -> Self {
         Self::new(Level::Error, prefix)
     }
     /// Log as [`Level::Info`]
-    ///  # Arguments
+    /// # Arguments
     /// * `prefix` - A prefix to prepend to the beginning of the log statment
     pub fn info<S: Into<Cow<'a, str>>>(prefix: S) -> Self {
         Self::new(Level::Info, prefix)
     }
     /// Log as [`Level::Trace`]
-    ///  # Arguments
+    /// # Arguments
     /// * `prefix` - A prefix to prepend to the beginning of the log statment
     pub fn trace<S: Into<Cow<'a, str>>>(prefix: S) -> Self {
         Self::new(Level::Trace, prefix)
     }
     /// Log as [`Level::Warn`]
-    ///  # Arguments
+    /// # Arguments
     /// * `prefix` - A prefix to prepend to the beginning of the log statment
     pub fn warn<S: Into<Cow<'a, str>>>(prefix: S) -> Self {
         Self::new(Level::Warn, prefix)
@@ -217,31 +217,31 @@ impl<'a> LogOptionalDisplayService<'a> {
         }
     }
     /// Log as [`Level::Debug`]
-    ///  # Arguments
+    /// # Arguments
     /// * `prefix` - A prefix to prepend to the beginning of the log statment
     pub fn debug<S: Into<Cow<'a, str>>>(prefix: S) -> Self {
         Self::new(Level::Debug, prefix)
     }
     /// Log as [`Level::Error`]
-    ///  # Arguments
+    /// # Arguments
     /// * `prefix` - A prefix to prepend to the beginning of the log statment
     pub fn error<S: Into<Cow<'a, str>>>(prefix: S) -> Self {
         Self::new(Level::Error, prefix)
     }
     /// Log as [`Level::Info`]
-    ///  # Arguments
+    /// # Arguments
     /// * `prefix` - A prefix to prepend to the beginning of the log statment
     pub fn info<S: Into<Cow<'a, str>>>(prefix: S) -> Self {
         Self::new(Level::Info, prefix)
     }
     /// Log as [`Level::Trace`]
-    ///  # Arguments
+    /// # Arguments
     /// * `prefix` - A prefix to prepend to the beginning of the log statment
     pub fn trace<S: Into<Cow<'a, str>>>(prefix: S) -> Self {
         Self::new(Level::Trace, prefix)
     }
     /// Log as [`Level::Warn`]
-    ///  # Arguments
+    /// # Arguments
     /// * `prefix` - A prefix to prepend to the beginning of the log statment
     pub fn warn<S: Into<Cow<'a, str>>>(prefix: S) -> Self {
         Self::new(Level::Warn, prefix)
