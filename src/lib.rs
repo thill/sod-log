@@ -19,17 +19,19 @@
 use std::{
     borrow::Cow,
     fmt::{Debug, Display},
+    marker::PhantomData,
 };
 
 use log::Level;
 use sod::Service;
 
 /// A [`sod::Service`] that logs [`Debug`] input at a configured log level to [`log::log`], returning the input as output.
-pub struct LogDebugService<'a> {
+pub struct LogDebugService<'a, T> {
     level: Level,
     prefix: Cow<'a, str>,
+    _phantom: PhantomData<fn(T)>,
 }
-impl<'a> LogDebugService<'a> {
+impl<'a, T> LogDebugService<'a, T> {
     /// Log input at the given log level
     /// # Arguments
     /// * `level` - The log level
@@ -38,6 +40,7 @@ impl<'a> LogDebugService<'a> {
         Self {
             level,
             prefix: prefix.into(),
+            _phantom: PhantomData,
         }
     }
     /// Log as [`Level::Debug`]
@@ -71,7 +74,8 @@ impl<'a> LogDebugService<'a> {
         Self::new(Level::Warn, prefix)
     }
 }
-impl<'a, T: Debug> Service<T> for LogDebugService<'a> {
+impl<'a, T: Debug> Service for LogDebugService<'a, T> {
+    type Input = T;
     type Output = T;
     type Error = ();
     fn process(&self, input: T) -> Result<Self::Output, Self::Error> {
@@ -83,11 +87,12 @@ impl<'a, T: Debug> Service<T> for LogDebugService<'a> {
 /// A [`sod::Service`] that logs optional [`Debug`] input when it is `Some(input)` at a configured log level to [`log::log`], returning the input as output.
 ///
 /// This service is useful for logging an event as it passed through a service chain, while ignoring non-blocking service chains that may continuously process `None` in a tight loop.
-pub struct LogOptionalDebugService<'a> {
+pub struct LogOptionalDebugService<'a, T> {
     level: Level,
     prefix: Cow<'a, str>,
+    _phantom: PhantomData<fn(T)>,
 }
-impl<'a> LogOptionalDebugService<'a> {
+impl<'a, T> LogOptionalDebugService<'a, T> {
     /// Log input at the given log level
     /// # Arguments
     /// * `level` - The log level
@@ -96,6 +101,7 @@ impl<'a> LogOptionalDebugService<'a> {
         Self {
             level,
             prefix: prefix.into(),
+            _phantom: PhantomData,
         }
     }
     /// Log as [`Level::Debug`]
@@ -129,7 +135,8 @@ impl<'a> LogOptionalDebugService<'a> {
         Self::new(Level::Warn, prefix)
     }
 }
-impl<'a, T: Debug> Service<Option<T>> for LogOptionalDebugService<'a> {
+impl<'a, T: Debug> Service for LogOptionalDebugService<'a, T> {
+    type Input = Option<T>;
     type Output = Option<T>;
     type Error = ();
     fn process(&self, input: Option<T>) -> Result<Self::Output, Self::Error> {
@@ -143,11 +150,12 @@ impl<'a, T: Debug> Service<Option<T>> for LogOptionalDebugService<'a> {
 /// A [`sod::Service`] that logs [`Display`] input at a configured log level to [`log::log`], returning the input as output.
 ///
 /// This service is useful for logging an event as it passed through a service chain.
-pub struct LogDisplayService<'a> {
+pub struct LogDisplayService<'a, T> {
     level: Level,
     prefix: Cow<'a, str>,
+    _phantom: PhantomData<fn(T)>,
 }
-impl<'a> LogDisplayService<'a> {
+impl<'a, T> LogDisplayService<'a, T> {
     /// Log input at the given log level
     /// # Arguments
     /// * `level` - The log level
@@ -156,6 +164,7 @@ impl<'a> LogDisplayService<'a> {
         Self {
             level,
             prefix: prefix.into(),
+            _phantom: PhantomData,
         }
     }
     /// Log as [`Level::Debug`]
@@ -189,7 +198,8 @@ impl<'a> LogDisplayService<'a> {
         Self::new(Level::Warn, prefix)
     }
 }
-impl<'a, T: Display> Service<T> for LogDisplayService<'a> {
+impl<'a, T: Display> Service for LogDisplayService<'a, T> {
+    type Input = T;
     type Output = T;
     type Error = ();
     fn process(&self, input: T) -> Result<Self::Output, Self::Error> {
@@ -201,11 +211,12 @@ impl<'a, T: Display> Service<T> for LogDisplayService<'a> {
 /// A [`sod::Service`] that logs optional [`Display`] input when it is `Some(input)` at a configured log level to [`log::log`], returning the input as output.
 ///
 /// This service is useful for logging an event as it passed through a service chain, while ignoring non-blocking service chains that may continuously process `None` in a tight loop.
-pub struct LogOptionalDisplayService<'a> {
+pub struct LogOptionalDisplayService<'a, T> {
     level: Level,
     prefix: Cow<'a, str>,
+    _phantom: PhantomData<fn(T)>,
 }
-impl<'a> LogOptionalDisplayService<'a> {
+impl<'a, T> LogOptionalDisplayService<'a, T> {
     /// Log input at the given log level
     /// # Arguments
     /// * `level` - The log level
@@ -214,6 +225,7 @@ impl<'a> LogOptionalDisplayService<'a> {
         Self {
             level,
             prefix: prefix.into(),
+            _phantom: PhantomData,
         }
     }
     /// Log as [`Level::Debug`]
@@ -247,7 +259,8 @@ impl<'a> LogOptionalDisplayService<'a> {
         Self::new(Level::Warn, prefix)
     }
 }
-impl<'a, T: Display> Service<Option<T>> for LogOptionalDisplayService<'a> {
+impl<'a, T: Display> Service for LogOptionalDisplayService<'a, T> {
+    type Input = Option<T>;
     type Output = Option<T>;
     type Error = ();
     fn process(&self, input: Option<T>) -> Result<Self::Output, Self::Error> {
